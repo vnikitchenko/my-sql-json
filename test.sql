@@ -41,5 +41,5 @@ select * from address
     join user on user.zip_code = JSON_EXTRACT(address.details, '$.zipCode');
 
 
-# LIKE not working as expected: empty result
-select * from address where JSON_EXTRACT(details, '$.street') like '456 Elm St';
+# in some cases arguments need to surround with double quotes or curly braces
+select * from address where JSON_EXTRACT(details, '$.street') like '"%Elm St"';
